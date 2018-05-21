@@ -183,7 +183,7 @@ exports.randomplay = (req, res, next) => {
 
 
 exports.randomcheck = (req, res, next) => {
-   req.session.randomPlay = req.session.randomPlay || []; 
+  /* req.session.randomPlay = req.session.randomPlay || []; 
     const answer = req.query.answer || ""; 
     const answerRight = req.quiz.answer; 
     const result = answer.toLowerCase().trim() === answerRight.toLowerCase().trim();
@@ -200,8 +200,8 @@ exports.randomcheck = (req, res, next) => {
         answer,
         result,
         score
-    });
-    /*try{
+    });*/
+    try{
     const {quiz, query} = req;
     req.session.alreadyPlayed = req.session.alreadyPlayed || [];
 
@@ -225,5 +225,5 @@ exports.randomcheck = (req, res, next) => {
     res.render('quizzes/random_result', {actual_answer, result, score});
     } catch (error){
         next(error);
-    }*/
+    }
 };
