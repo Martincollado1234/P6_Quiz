@@ -204,7 +204,7 @@ exports.randomcheck = (req, res, next) => {
         req.session.alreadyPlayed = [];
     }
 
-    res.render('quizzes/random_result', {actual_answer, result, score});
+    res.render('quizzes/random_result', {act_ans, result, score});
     } catch (error){
         next(error);
     }
