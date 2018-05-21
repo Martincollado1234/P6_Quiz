@@ -165,12 +165,12 @@ exports.randomplay = (req, res, next) => {
         if(quiz === undefined) {
             req.session.alreadyPlayed = [];
             res.render('quizzes/random_nomore', {
-                scor: scor
+                score: scor
             });
         } else {
             res.render('quizzes/random_play', {
                 quiz: quiz,
-                scor: scor
+                score: scor
             });
         }
     })
@@ -183,34 +183,16 @@ exports.randomplay = (req, res, next) => {
 
 
 exports.randomcheck = (req, res, next) => {
-  /* req.session.randomPlay = req.session.randomPlay || []; 
-    const answer = req.query.answer || ""; 
-    const answerRight = req.quiz.answer; 
-    const result = answer.toLowerCase().trim() === answerRight.toLowerCase().trim();
-    let score = req.session.randomPlay.length || 0;
-    if (result) {
-        if (req.session.randomPlay.indexOf(req.quiz.id) === -1) {
-            req.session.randomPlay.push(req.quiz.id);
-            score = req.session.randomPlay.length;
-        }
-    } else {
-        req.session.randomPlay = [];
-    }
-    res.render('quizzes/random_result', {
-        answer,
-        result,
-        score
-    });*/
     try{
     const {quiz, query} = req;
     req.session.alreadyPlayed = req.session.alreadyPlayed || [];
 
-    const actual_answer = query.answer || "";
-    const right_answer = quiz.answer;
+    const act_ans = query.answer || "";
+    const right_ans = quiz.answer;
 
-    const result = actual_answer.toLowerCase().trim() === right_answer.toLowerCase().trim();
+    const theResult = act_ans.toLowerCase().trim() === right_ans.toLowerCase().trim();
 
-    if (result){
+    if (theResult){
         if(req.session.alreadyPlayed.indexOf(req.quiz.id) === -1){ 
             req.session.alreadyPlayed.push(req.quiz.id);
         }
@@ -218,7 +200,7 @@ exports.randomcheck = (req, res, next) => {
 
     const score = req.session.alreadyPlayed.length;
 
-    if(!result){
+    if(!theResult){
         req.session.alreadyPlayed = [];
     }
 
