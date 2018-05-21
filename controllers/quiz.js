@@ -190,9 +190,9 @@ exports.randomcheck = (req, res, next) => {
     const act_ans = query.answer || "";
     const right_ans = quiz.answer;
 
-    const theResult = act_ans.toLowerCase().trim() === right_ans.toLowerCase().trim();
+    const result = act_ans.toLowerCase().trim() === right_ans.toLowerCase().trim();
 
-    if (theResult){
+    if (result){
         if(req.session.alreadyPlayed.indexOf(req.quiz.id) === -1){ 
             req.session.alreadyPlayed.push(req.quiz.id);
         }
@@ -200,7 +200,7 @@ exports.randomcheck = (req, res, next) => {
 
     const score = req.session.alreadyPlayed.length;
 
-    if(!theResult){
+    if(!result){
         req.session.alreadyPlayed = [];
     }
 
