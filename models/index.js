@@ -28,7 +28,9 @@ sequelize.sync()
             { question: "Capital de Italia", answer: "Roma" },
             { question: "Capital de España", answer: "Madrid" },
             { question: "Capital de Francia", answer: "París" },
-            { question: "Capital de Portugal", answer: "Lisboa" }
+            { question: "Capital de Portugal", answer: "Lisboa" },
+            { question: "Nucleo de la varita de Harry Potter", answer: "Pluma de cola de fenix" },
+            { question: "Nombre Saiyajin de SonGoku", answer: "Kakarotto" }
         ]);
     }
 })
