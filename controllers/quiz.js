@@ -188,9 +188,9 @@ exports.randomcheck = (req, res, next) => {
     req.session.alreadyPlayed = req.session.alreadyPlayed || [];
 
     const act_ans = query.answer || "";
-    const right_ans = quiz.answer;
+    const right_answer = quiz.answer;
 
-    const result = act_ans.toLowerCase().trim() === right_ans.toLowerCase().trim();
+    const result = act_ans.toLowerCase().trim() === right_answer.toLowerCase().trim();
 
     if (result){
         if(req.session.alreadyPlayed.indexOf(req.quiz.id) === -1){ 
